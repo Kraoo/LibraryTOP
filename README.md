@@ -15,4 +15,4 @@ Welcome to the Library Tracker, a simple web application designed to help you ma
 - JavaScript
 
 ## Credits
-This project was created as part of The Odin Project's curriculum, a free online resource for learning web development. Special thanks to The Odin Project for providing guidance and resources throughout the learning journey.
+This project was created as part of The Odin Project's curriculum, a free online resource for learning web development. 
