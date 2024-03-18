@@ -1,0 +1,505 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(./Fonts/Montserrat.ttf);
+}
+
+@font-face {
+    font-family: Caveat;
+    src: url(./Fonts/Caveat.ttf);
+}
+
+/* Global Style */
+
+body {
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #9f345b;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Caveat;
+    font-size: 25px;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    font-family: Montserrat;
+}
+
+.headerIcon {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 60rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Dark mode slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f76dbe; /* Slider light color */
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Plus add button style */
+
+#addBookBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9f345b;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 2px 1px 0 #ff71ba;
+}
+
+.completed-book {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }  
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Card Style and Background Trans */
+
+.book-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.completed-book {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; 
+    left: -1px; 
+    width: calc(100% + 10px); 
+    height: calc(100% + 10px); 
+    border-radius: 20px;
+    z-index: -1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.book-card:hover::before {
+    transform: translate(5px, 5px);
+    background-color: #9f345b; 
+}
+
+.book-info h3 {
+    margin-top: 0;
+}
+
+.book-info p {
+    margin-bottom: 10px;
+}
+
+.book-progress {
+    display: flex;
+    align-items: center;
+}
+
+.progress-pgn {
+    margin-right: 30px;
+}
+
+.read-pages-btn, .delete-book-btn {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+    box-shadow: 3px 1.5px 0 #ff71ba;
+}
+
+.read-pages-btn:hover, .delete-book-btn:hover {
+    background-color: #881e45;
+}
+
+/* Old code, just keeping for reference to old code 
+
+.book-progress button {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.book-progress button:hover {
+    background-color: #881e45;
+} */
+
+#booksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+/* Dark Mode Style */
+
+body.dark-mode { /* prev: .dark-mode body */
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+.dark-mode .slider {
+    background-color: #ffffff;
+}
+
+.dark-mode .slider:before {
+    background-color: #3b3b3b;
+}
+
+.dark-mode .slider.round {
+    background-color: #ff2c8b; /* Slider dark color */
+}
+
+.dark-mode #addBookBtn {
+    background-color: #9f345b;
+    color: #fff;
+}
+
+.dark-mode .modal-content {
+    background-color: #333;
+    color: #fff;
+    border-color: #666;
+}
+
+.dark-mode .close {
+    color: #ccc;
+}
+
+.dark-mode .book-card {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .completed-book {
+    background-color: #2a2929;
+    color: #fff;
+}
+
+.dark-mode #deleteModal .modal-content {
+    background-color: #333;
+    color: #fff;
+    border-color: #666;
+}
+
+.dark-mode #modal .modal-content {
+    background-color: #333;
+    color: #fff;
+    border-color: #666;
+}
+
+.dark-mode #modal .modal-content input[type="text"],
+.dark-mode #modal .modal-content input[type="number"] {
+    border-color: #666;
+}
+
+.dark-mode #updateModal .modal-content {
+    background-color: #333;
+    color: #fff;
+    border-color: #666;
+}
+
+.dark-mode #updateModal .modal-content input[type="number"],
+.dark-mode #updateModal .modal-content button {
+    border-color: #666;
+}
+
+.dark-mode #modal .modal-content button,
+.dark-mode #updateModal .modal-content button
+.dark-mode #deleteModal .modal-content button {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 3px 1.5px 0 #ff71ba;
+}
+
+.dark-mode #modal .modal-content button:hover,
+.dark-mode #updateModal .modal-content button:hover
+.dark-mode #deleteModal .modal-content button:hover {
+    background-color: #822e4f;
+}
+
+/* Delete Pop-up */
+
+#deleteModal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#deleteModal .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#deleteModal .modal-content p {
+    margin-bottom: 20px;
+}
+
+#deleteModal .modal-content button {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    box-shadow: 3px 1.5px 0 #ff71ba;
+}
+
+#deleteModal .modal-content button:hover {
+    background-color: #822e4f;
+}
+
+#deleteModal .modal-content button:last-child {
+    margin-right: 0;
+}
+
+/* Add Book Style */
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#modal .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#modal .modal-content input[type="text"],
+#modal .modal-content input[type="number"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#modal .modal-content button {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 3px 1.5px 0 #ff71ba;
+}
+
+#modal .modal-content button:hover {
+    background-color: #822e4f;
+}
+
+#modal .modal-content .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#modal .modal-content .close:hover,
+#modal .modal-content .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Update Pages Style */
+
+#updateModal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#updateModal .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#updateModal .modal-content input[type="number"]{
+    width: 20rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#updateModal .modal-content button {
+    background-color: #9f345b;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    box-shadow: 3px 1.5px 0 #ff71ba;
+}
+
+#updateModal .modal-content button:hover {
+    background-color: #822e4f;
+}
