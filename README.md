@@ -8,6 +8,7 @@ Welcome to my Library project from TheOdinProject full stack JS path. I wanted t
 - **Update Reading Progress**: Keep your reading progress up to date by updating the number of pages you've read for each book.
 - **Delete Books**: Remove unwanted books from your library with a simple click of a button.
 - **Dark Mode**: Toggle between light and dark mode for a comfortable reading experience in any lighting condition.
+- **Progress Bar**: To show your progress of pages read to total pages in the book you have added.
 
 ## Technologies Used
 - HTML
