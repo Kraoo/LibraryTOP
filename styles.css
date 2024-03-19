@@ -504,89 +504,21 @@ body.dark-mode { /* prev: .dark-mode body */
     background-color: #822e4f;
 }
 
-/* Mobile Styles */
-@media only screen and (max-width: 600px) {
-    header {
-      padding: 10px;
-      font-size: 20px;
+/* progress bar */ 
+.book-progress {
+    position: relative;
     }
-  
-    .headerIcon {
-      width: 3rem;
-      height: 3rem;
-      margin-right: 20px;
+    
+.progress-bar-container {
+    height: 8px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -5px;
     }
-  
-    #addBookBtn {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      bottom: 10px;
-      right: 10px;
-    }
-  
-    .modal-content {
-      width: 90%;
-      max-width: 300px;
-    }
-  
-    .modal-content input[type="text"],
-    .modal-content input[type="number"] {
-      width: calc(100% - 20px);
-      margin-bottom: 10px;
-    }
-  
-    .modal-content button {
-      font-size: 14px;
-      padding: 10px 16px;
-    }
-  
-    .book-card,
-    .completed-book {
-      max-width: calc(100% - 40px);
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-
-  /* Tablet Styles */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    header {
-      font-size: 22px;
-    }
-  
-    .headerIcon {
-      width: 4rem;
-      height: 4rem;
-      margin-right: 40px;
-    }
-  
-    #addBookBtn {
-      font-size: 28px;
-      width: 60px;
-      height: 60px;
-    }
-  
-    .modal-content {
-      width: 80%;
-      max-width: 400px;
-    }
-  
-    .modal-content input[type="text"],
-    .modal-content input[type="number"] {
-      width: calc(100% - 30px);
-      margin-bottom: 15px;
-    }
-  
-    .modal-content button {
-      font-size: 16px;
-      padding: 12px 20px;
-    }
-  
-    .book-card,
-    .completed-book {
-      max-width: calc(50% - 40px);
-      margin-right: 20px;
-      margin-left: 20px;
-    }
-  }
+    
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    }    
