@@ -1,7 +1,7 @@
 # Library Tracker
 
 ## Introduction
-Welcome to the Library Tracker, a simple web application designed to help you manage your book collection. With this application, you can keep track of the books you own, monitor your reading progress, and easily add or remove books from your library.
+Welcome to my Library project from TheOdinProject full stack JS path. I wanted this to be a project that I made where the page function as best as possible, with very little reoccuring errors. And I feel like I accomplished this, I had many errors at the start of this project and I fixed all the ones that I had found. The dark mode, add, update, and delete functions all work as intended, and for this project I have finally formatted for mobile and tablet. However, I have noticied issues with the tablet format and will loop back to this later. This was a very fun project and was a good challenge to not only put my design on the screen but also challenge myself to not leave holes in my code. I hope whoever tries it enjoys and that it works properly. 
 
 ## Features
 - **Add Books**: Easily add new books to your library by providing their title, author, total number of pages, and the number of pages you've already read.
