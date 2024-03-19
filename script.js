@@ -173,10 +173,12 @@ function renderBooks() {
     const isBookCompleted = book.pagesRead === book.totalPages;
 
     if (isBookCompleted) {
-      bookCard.classList.add('completed-book'); 
+      bookCard.classList.add('completed-book');
     } else {
       bookCard.classList.add('book-card');
     }
+
+    const progressPercentage = (book.pagesRead / book.totalPages) * 100;
 
     bookCard.innerHTML = `
       <div class="book-info">
@@ -185,6 +187,9 @@ function renderBooks() {
       </div>
       <div class="book-progress">
         <p class="progress-pgn">${book.pagesRead} / ${book.totalPages} Pages</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: ${progressPercentage}%; background-color: ${isBookCompleted ? '#9f345b' : '#9f345b'};"></div>
+        </div>
         <button class="read-pages-btn">Update</button>
         <button class="delete-book-btn" onclick="showDeleteModal(${index})">Delete</button>
       </div>
@@ -192,3 +197,4 @@ function renderBooks() {
     booksContainer.appendChild(bookCard);
   });
 }
+
