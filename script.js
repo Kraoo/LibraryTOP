@@ -42,10 +42,15 @@ closeBtn.addEventListener('click', () => {
 
 // Add Book Info
 addBookForm.addEventListener('click', () => {
-  const title = document.getElementById('bookTitle').value;
-  const author = document.getElementById('bookAuthor').value;
-  const totalPages = parseInt(document.getElementById('bookPages').value);
-  const pagesRead = parseInt(document.getElementById('pagesRead').value) || 0;
+  const titleInput = document.getElementById('bookTitle');
+  const authorInput = document.getElementById('bookAuthor');
+  const totalPagesInput = document.getElementById('bookPages');
+  const pagesReadInput = document.getElementById('pagesRead');
+
+  const title = titleInput.value;
+  const author = authorInput.value;
+  const totalPages = parseInt(totalPagesInput.value);
+  const pagesRead = parseInt(pagesReadInput.value) || 0;
 
   if (title && author && totalPages) {
     const newBook = {
@@ -58,6 +63,11 @@ addBookForm.addEventListener('click', () => {
     localStorage.setItem('books', JSON.stringify(books));
     renderBooks();
     modal.style.display = 'none';
+    
+    titleInput.value = '';
+    authorInput.value = '';
+    totalPagesInput.value = '';
+    pagesReadInput.value = '';
   } else {
     alert('Please fill in Title and Author fields, and Total Pages must be greater than 0.');
   }
