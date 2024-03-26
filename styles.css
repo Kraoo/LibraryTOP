@@ -203,6 +203,7 @@ input:checked + .slider:before {
 
 .book-info h3 {
     margin-top: 0;
+    font-size: clamp(16px, 4vw, 12px);
 }
 
 .book-info p {
